@@ -1,0 +1,40 @@
+<mvc:View
+    controllerName="com.bootcamp.sapui5.freestyle.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <Table
+            inset="false"
+            items="{
+			    path: '/Products',
+                sorter: {
+                    path: 'ProductName'
+                }
+		    }"
+        >
+            <columns>
+                <Column
+                    minScreenWidth="Tablet"
+                    demandPopin="true"
+                >
+                    <Text text="Product id" />
+                </Column>
+                <Column width="12em">
+                    <Text text="Product" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle">
+                    <cells>
+                        <Text text="{ProductID}" />
+                        <Text text="{ProductName}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>
