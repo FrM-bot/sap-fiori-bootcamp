@@ -1,0 +1,72 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+>
+    <Table
+        inset="false"
+        items="{
+                path: '/Order_Details',
+                sorter: {
+                    path: 'OrderID'
+                }
+            }"
+    >
+        <columns>
+            <Column>
+                <Text text="{i18n>OrderID}" />
+            </Column>
+            <Column>
+                <Text text="{i18n>CategoryID}" />
+            </Column>
+            <Column>
+                <Text text="{i18n>UnitPrice}" />
+            </Column>
+            <!-- 
+            <Column>
+                <Text text="{i18n>Product}" />
+            </Column>
+            <Column>
+                <Text text="{i18n>UnitsInStock}" />
+            </Column>
+            <Column>
+                <Text text="{i18n>QuantityPerUnit}" />
+            </Column> -->
+        </columns>
+        <items>
+            <ColumnListItem vAlign="Middle">
+                <!-- OrderID,UnitPrice,Quantity,Discount -->
+                <cells>
+                    <Text text="{ProductID}" />
+                    <Text text="{CategoryID}" />
+
+                    <ObjectNumber
+                        number="{
+                            parts:[{path:'UnitPrice'}],
+                            type: 'sap.ui.model.type.Currency',
+                            formatOptions: {showMeasure: true}
+                        }"
+                        unit="USD"
+                    />
+
+                    <ObjectNumber
+                        number="{
+                            parts:[{path:'Discount'}],
+                            type: 'sap.ui.model.type.Quantity',
+                            formatOptions: {showMeasure: true}
+                        }"
+                    />
+                    <!--
+                    
+                    <Text text="{Order_Details>ProductName}" />
+                    
+                    <ObjectIdentifier
+                        title="{Order_Details>ProductID}"
+                        text="{Order_Details>ProductName}"
+                    />
+                    <Text text="{Order_Details>Discount}" /> -->
+                    <!-- <Text text="{Order_Details>QuantityPerUnit}" /> -->
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</c:FragmentDefinition>

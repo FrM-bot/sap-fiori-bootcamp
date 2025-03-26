@@ -1,0 +1,52 @@
+<mvc:View
+    controllerName="com.bootcamp.sapui5.freestyle.controller.Details"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="pageDetail"
+        title="{i18n>titleDetails}"
+    >
+        <VBox id="dhb_01">
+            <f:SimpleForm
+                id="SimpleFormDisplay354"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                title="{i18n>Information}"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <Label text="{i18n>ProductName}" />
+                    <Text text="{ProductName}" />
+
+                    <Label text="{i18n>QuantityPerUnit}" />
+                    <Text text="{Street} {QuantityPerUnit}" />
+
+                    <Label text="{i18n>UnitPrice}" />
+                    <Text text="{UnitPrice}" />
+
+                    <Label text="{i18n>UnitsInStock}" />
+                    <Text text="{UnitsInStock}" />
+                </f:content>
+            </f:SimpleForm>
+            <core:Fragment
+                fragmentName="com.bootcamp.sapui5.freestyle.view.fragments.OrderDetailsTable"
+                type="XML"
+            />
+        </VBox>
+    </Page>
+</mvc:View>

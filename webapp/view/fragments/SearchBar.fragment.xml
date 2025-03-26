@@ -1,0 +1,46 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+>
+    <Toolbar>
+        <Input value="{LocalDataModel>/valueInput}" placeholder="Product name" />
+
+        <MultiComboBox
+            selectionChange="onSelectionChange"
+            selectionFinish="onSelectionFinish"
+            selectedKeys="{LocalDataModel>/categories}"
+            placeholder="Category"
+            items="{
+					path: '/Categories',
+					sorter: { path: 'CategoryName' }
+				}"
+        >
+            <c:Item
+                key="{CategoryID}"
+                text="{CategoryID} - {CategoryName}"
+            />
+        </MultiComboBox>
+
+        <MultiInput
+            width="70%"
+            showClearIcon="true"
+            placeholder="Supplier name"
+            suggestionItems="{
+				path: '/Suppliers',
+				sorter: { path: 'CompanyName' }
+			}"
+            showValueHelp="false"
+            tokenUpdate="onSelectSupplier"
+        >
+            <c:Item
+                key="{SupplierID}"
+                text="{SupplierID} - {CompanyName}"
+            />
+        </MultiInput>
+
+        <Button
+            text="{i18n>buttonSearchText}"
+            press="onPress"
+        />
+    </Toolbar>
+</c:FragmentDefinition>

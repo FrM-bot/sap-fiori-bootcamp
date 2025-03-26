@@ -2,39 +2,19 @@
     controllerName="com.bootcamp.sapui5.freestyle.controller.Home"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
+    xmlns:c="sap.ui.core"
 >
     <Page
         id="page"
         title="{i18n>title}"
     >
-        <Table
-            inset="false"
-            items="{
-			    path: '/Products',
-                sorter: {
-                    path: 'ProductName'
-                }
-		    }"
-        >
-            <columns>
-                <Column
-                    minScreenWidth="Tablet"
-                    demandPopin="true"
-                >
-                    <Text text="Product id" />
-                </Column>
-                <Column width="12em">
-                    <Text text="Product" />
-                </Column>
-            </columns>
-            <items>
-                <ColumnListItem vAlign="Middle">
-                    <cells>
-                        <Text text="{ProductID}" />
-                        <Text text="{ProductName}" />
-                    </cells>
-                </ColumnListItem>
-            </items>
-        </Table>
+        <c:Fragment
+            fragmentName="com.bootcamp.sapui5.freestyle.view.fragments.SearchBar"
+            type="XML"
+        />
+        <c:Fragment
+            fragmentName="com.bootcamp.sapui5.freestyle.view.fragments.ProductsTable"
+            type="XML"
+        />
     </Page>
 </mvc:View>
